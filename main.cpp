@@ -7,8 +7,8 @@
 using namespace std;
 
 // Function prototypes
-void reverseArray(string* arr, int size);
-void displayArray(string* arr, int size);
+void reverseArray(string *arr, int size);
+void displayArray(string *arr, string *tempArr, int size);
 
 int main() {
     const int size = 5;
@@ -28,26 +28,23 @@ int main() {
     return 0;
 }
 // function definitions
-void reverseArray(string* arr, int size) {
-    string *tempArr = nullptr;
-    tempArr = new string[size];
-    
+void reverseArray(string *arr, int size) {
+    string *temp = nullptr;
+    temp = new string[size];
     for (int i = 0; i < size; i++) {
-        tempArr[i] = arr[size - 1 - i];
+        temp[i] = arr[size - 1 - i];
     }
-    for (int i = 0; i < size; i++) {
-        arr[i] = tempArr[i];
-    }
-    delete[] tempArr;
-
+    arr = temp;
+    delete[] temp;
 }
-void displayArray(string* arr, int size) {
-    string* tempArr = nullptr;
-    tempArr = new string[size];
-
+void displayArray(string *arr, int size) {
+    string *temp = nullptr;
+    temp = new string[size];
+    temp = arr;
+    reverseArray(temp, size);
     cout << "Original array: ";
     for (int i = 0; i < size; i++) {
-        cout << arr[i] << " ";
+        cout << temp[i] << " ";
     }
     cout << endl;
     cout << "Reversed array: ";
@@ -55,5 +52,5 @@ void displayArray(string* arr, int size) {
         cout << tempArr[i];
     }
     cout << endl;
-    delete[] tempArr;
+    
 }
