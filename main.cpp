@@ -26,8 +26,9 @@ int main() {
         }
     }
 
+   
     dsArr = {"Janet", "Jeffe", "Jin", "Joe", "Junio"};
-
+       
     reverseArray(dsArr, size);
     displayArray(dsArr, size);
 
