@@ -12,39 +12,28 @@ void displayArray(string *arr, int size);
 int main() {
     const int size = 5;
     string *dsArr = nullptr;
-    dsArr = new string[size];    
-    char choice;
+    dsArr = new string[size]{"Janet", "Jeffe", "Jin", "Joe", "Junio"};    
 
-    cout << "Do you wish to enter your own strings instead of default? (y/n): ";
-    cin >> choice;
-    cin.ignore(); 
-    if(choice == 'y' || choice == 'Y') {
-        cout << "Enter " << size << " strings:" << endl;
-        for (int i = 0; i < size; i++) {
-            cout << "String " << (i + 1) << ": ";
-            getline(cin, dsArr[i]);
-        }
-    }
+    cout << "Original array: ";
+    displayArray(dsArr, size);
 
-    dsArr = {"Janet", "Jeffe", "Jin", "Joe", "Junio"};
-       
-    reverseArray(dsArr, size);
+    dsArr = reverseArray(dsArr, size);
+
+    cout << "\nReversed array: ";
     displayArray(dsArr, size);
 
     delete[] dsArr;
-    
-
     return 0;
 }
 // function definitions
 string *reverseArray(string *arr, int size) {
-    string *temp = nullptr;
-    temp = new string[size];
-    for (int i = 0; i < size; i++) {
-        temp[i] = arr[size - 1 - i];
+    string *start = arr;
+    string *end = arr + size -1;
+    while (start < end) {
+        swap(*start, *end);
+        start++;
+        end--;
     }
-    arr = temp;
-    delete[] temp;
 }
 void displayArray(string *arr, int size) {
     for (int i = 0; i < size; i++) {
