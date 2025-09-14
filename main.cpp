@@ -26,13 +26,13 @@ int main() {
         }
     }
 
-   
     dsArr = {"Janet", "Jeffe", "Jin", "Joe", "Junio"};
        
     reverseArray(dsArr, size);
     displayArray(dsArr, size);
 
     delete[] dsArr;
+    
 
     return 0;
 }
@@ -48,6 +48,6 @@ string *reverseArray(string *arr, int size) {
 }
 void displayArray(string *arr, int size) {
     for (int i = 0; i < size; i++) {
-        cout << * << " ";
+        cout << *(arr + 1) << " ";
     }
 }
