@@ -8,7 +8,7 @@ using namespace std;
 
 // Function prototypes
 void reverseArray(string *arr, int size);
-void displayArray(string *arr, string *tempArr, int size);
+void displayArray(string *arr, int size);
 
 int main() {
     const int size = 5;
@@ -49,7 +49,7 @@ void displayArray(string *arr, int size) {
     cout << endl;
     cout << "Reversed array: ";
     for (int i = 0; i < size; i++) {
-        cout << temp[i];
+        cout << arr[i] << " ";
     }
     cout << endl;
     delete [] temp;
