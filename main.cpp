@@ -7,13 +7,13 @@
 using namespace std;
 
 // Function prototypes
-void reverseArray(string *arr, int size);
+string *reverseArray(string *arr, int size);
 void displayArray(string *arr, int size);
 
 int main() {
     const int size = 5;
     string *dsArr = nullptr;
-    dsArr = new string[size];
+    dsArr = new string[size] {"Janet", "Jeffe", "Jin", "Joe", "Junio"};
 
     cout << "Enter " << size << " strings:" << endl;
     for (int i = 0; i < size; i++) {
@@ -28,7 +28,7 @@ int main() {
     return 0;
 }
 // function definitions
-void reverseArray(string *arr, int size) {
+string *reverseArray(string *arr, int size) {
     string *temp = nullptr;
     temp = new string[size];
     for (int i = 0; i < size; i++) {
