@@ -1,7 +1,6 @@
 // COMSC-210 | Lab 7: Dynamic Arrays & Functions II | Aidan Woodcock | 2025-09-14
 // IDE used: Visual Studio Code
 #include <iostream>
-#include <iomanip>
 #include <string>
 
 using namespace std;
@@ -13,13 +12,22 @@ void displayArray(string *arr, int size);
 int main() {
     const int size = 5;
     string *dsArr = nullptr;
-    dsArr = new string[size] {"Janet", "Jeffe", "Jin", "Joe", "Junio"};
+    dsArr = new string[size];    
+    char choice;
 
-    cout << "Enter " << size << " strings:" << endl;
-    for (int i = 0; i < size; i++) {
-        cout << "String " << (i + 1) << ": ";
-        getline(cin, dsArr[i]);
+    cout << "Do you wish to enter your own strings instead of default? (y/n): ";
+    cin >> choice;
+    cin.ignore(); 
+    if(choice == 'y' || choice == 'Y') {
+        cout << "Enter " << size << " strings:" << endl;
+        for (int i = 0; i < size; i++) {
+            cout << "String " << (i + 1) << ": ";
+            getline(cin, dsArr[i]);
+        }
     }
+
+    dsArr = {"Janet", "Jeffe", "Jin", "Joe", "Junio"};
+
     reverseArray(dsArr, size);
     displayArray(dsArr, size);
 
@@ -38,19 +46,7 @@ string *reverseArray(string *arr, int size) {
     delete[] temp;
 }
 void displayArray(string *arr, int size) {
-    string *temp = nullptr;
-    temp = new string[size];
-    temp = arr;
-    reverseArray(temp, size);
-    cout << "Original array: ";
     for (int i = 0; i < size; i++) {
-        cout << temp[i] << " ";
+        cout << * << " ";
     }
-    cout << endl;
-    cout << "Reversed array: ";
-    for (int i = 0; i < size; i++) {
-        cout << arr[i] << " ";
-    }
-    cout << endl;
-    delete [] temp;
 }
