@@ -12,7 +12,8 @@ void displayArray(string* arr, int size);
 
 int main() {
     const int size = 5;
-    string* dsArr = new string[size];
+    string *dsArr = nullptr;
+    dsArr = new string[size];
 
     cout << "Enter " << size << " strings:" << endl;
     for (int i = 0; i < size; i++) {
@@ -28,20 +29,31 @@ int main() {
 }
 // function definitions
 void reverseArray(string* arr, int size) {
-
-
-}
-void displayArray(string* arr, int size) {
-    string* tempArr = new string[size];
+    string *tempArr = nullptr;
+    tempArr = new string[size];
+    
     for (int i = 0; i < size; i++) {
         tempArr[i] = arr[size - 1 - i];
     }
-    cout << "\nOriginal array: " << endl;
     for (int i = 0; i < size; i++) {
-        cout << arr[i] << endl;
+        arr[i] = tempArr[i];
     }
-    cout << "\nReversed array: " << endl;
+    delete[] tempArr;
+
+}
+void displayArray(string* arr, int size) {
+    string* tempArr = nullptr;
+    tempArr = new string[size];
+
+    cout << "Original array: ";
     for (int i = 0; i < size; i++) {
-        cout << tempArr[i] << endl;
+        cout << arr[i] << " ";
     }
+    cout << endl;
+    cout << "Reversed array: ";
+    for (int i = 0; i < size; i++) {
+        cout << tempArr[i];
+    }
+    cout << endl;
+    delete[] tempArr;
 }
