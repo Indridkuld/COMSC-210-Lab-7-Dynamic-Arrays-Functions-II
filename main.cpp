@@ -49,8 +49,8 @@ void displayArray(string *arr, int size) {
     cout << endl;
     cout << "Reversed array: ";
     for (int i = 0; i < size; i++) {
-        cout << tempArr[i];
+        cout << temp[i];
     }
     cout << endl;
-    
+    delete [] temp;
 }
